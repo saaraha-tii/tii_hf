@@ -3,7 +3,7 @@ import requests
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-from datetime import datetime
+from datetime import datetime, timezone
 import time
 
 # Page configuration
@@ -225,7 +225,7 @@ if models_data:
     
     # Footer
     st.markdown("---")
-    st.caption(f"Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} | Data source: Hugging Face API")
+    st.caption(f"Last updated: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')} | Data source: Hugging Face API")
     
 else:
     st.error("Failed to fetch data from Hugging Face. Please try again later.")
